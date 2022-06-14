@@ -11,15 +11,6 @@ CREATE TABLE Sintoma (
   PRIMARY KEY(idSintoma)
 );
 
-CREATE TABLE FormularioSugestao (
-  idFormularioSugestao INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  email VARCHAR(100) NULL,
-  descricao VARCHAR(1000) NULL,
-  imagem BLOB NULL,
-  estado BOOL NULL,
-  PRIMARY KEY(idFormularioSugestao)
-);
-
 CREATE TABLE Receita (
   idReceita INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
   Sintoma_idSintoma INTEGER UNSIGNED NOT NULL,
@@ -32,6 +23,27 @@ CREATE TABLE Receita (
   PRIMARY KEY(idReceita),
   INDEX Receita_FKIndex1(Ingrediente_idIngrediente),
   INDEX Receita_FKIndex2(Sintoma_idSintoma),
+  FOREIGN KEY(Ingrediente_idIngrediente)
+    REFERENCES Ingrediente(idIngrediente)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION,
+  FOREIGN KEY(Sintoma_idSintoma)
+    REFERENCES Sintoma(idSintoma)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION
+);
+
+CREATE TABLE FormularioSugestao (
+  idFormularioSugestao INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  Sintoma_idSintoma INTEGER UNSIGNED NOT NULL,
+  Ingrediente_idIngrediente INTEGER UNSIGNED NOT NULL,
+  email VARCHAR(100) NULL,
+  descricao VARCHAR(1000) NULL,
+  imagem BLOB NULL,
+  estado BOOL NULL,
+  PRIMARY KEY(idFormularioSugestao),
+  INDEX FormularioSugestao_FKIndex2(Ingrediente_idIngrediente),
+  INDEX FormularioSugestao_FKIndex2(Sintoma_idSintoma),
   FOREIGN KEY(Ingrediente_idIngrediente)
     REFERENCES Ingrediente(idIngrediente)
       ON DELETE NO ACTION
