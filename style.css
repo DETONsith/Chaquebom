@@ -1,0 +1,25 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    scroll-behavior: smooth;
+    background-color: #E6E4DA;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#container h1{
+    font-size: 72px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
