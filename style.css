@@ -1,54 +1,51 @@
-*{
-    padding: 0px;
-    margin: 0px;
-    scroll-behavior: smooth;
-    background-color: #E6E4DA;
+body{
+  background-color: #e6e4da;
 }
-
-#container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-#container h1{
-    font-size: 72px;
-    font-family: 'Roboto', sans-serif;
-}
-
-
-
-
 
 #divBusca{
-    background-color:#E0EEEE;
-    border:solid 2px #5F9EA0;
-    border-radius:10px;
-    width:300px;
-    height:32px;
-  }
   
-  #txtBusca{
-    float:left;
-    background-color:transparent;
-    padding-left:5px;
-    font-size:18px;
-    border:none;
-    height:32px;
-    width:191px;
-  }
+  border:solid 1px;
+  border-radius:15px;
+  width:300px;
+
+}
+
+#txtBusca{
+
+  border-radius: 15PX;
+  background-color:#F1F1F1;
+  padding-left:5px;
+  font-style: normal; 
+  font-size:16px;
+  border:none;
+  height:32px;
+  width:300px;
+
   
-  #btnBusca{
-    border:none;
-    float:left;
-    height:32px;
-    border-radius:0 7px 7px 0;
-    width:70px;
-    font-weight:bold;
-    background:#5F9EA0;
-  }
-  
-  #divBusca img{
-    float:left;
-  }
+}
+
+.row{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  align-items:center;
+}
+
+.logo{
+  border: #E0EEEE solid 4px;
+  border-radius: 50%;
+  height: 150px;
+  margin-top: 220px;
+  text-align: 100px;
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+.col-md-12{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
