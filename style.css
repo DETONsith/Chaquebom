@@ -50,6 +50,6 @@ body{
   align-items: center;
 }
 
-.sugest-name{
+.sugest-name:hover{
   cursor: pointer;
 }
