@@ -20,7 +20,7 @@
     </form>
             </div>
             <div class="footer">
-
+                <?php if($_POST['denied']==true){echo $_POST['ErrorMsg'];}) ?>
             </div>
         </div>
     </div>

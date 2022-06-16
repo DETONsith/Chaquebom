@@ -10,7 +10,12 @@ $result = $conn->query("select * from logins where login = $login and password =
 if($result->num_rows > 0){ 
     session_start();
     $_SESSION['AdmOnline'] = true; }
-else{ header('Location: CrudRecipes.php'); }
+else{ 
+    echo "<p id=error>Falha ao fazer login, usuário ou senha incorretos!</p>"
+    ?><script>
+        $(document).ready(function(){
 
-
-?>
+$.post("secretlogin.php",{denied:true,error:$('#error').val()});
+});
+    </script>
+<?php } ?>
