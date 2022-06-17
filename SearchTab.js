@@ -1,17 +1,28 @@
 $(document).ready(function() {
-    console.log("chegou aqui1");
-    $( "#txtBusca" ).keyup(function() {
-  alert( "digitou" );
-});
 
     $('#txtBusca').keyup(function() {
-        console.log("chegou aqui");
+    //envia para o php o valor do campo de busca
         var texto = $('#txtBusca').val();
-        console.log($('#txtBusca').val());
         $.post("querySimp.php",{palavra:texto},function(data){
             $(".sugests").html(data);
         })
+    });
 
+    //ao clicar na sugestão armazena ela no campo de selecionados
+    $('.sugests').on('click','li',function(){
+        $('.selecionados').append($(this));
+    });
+
+    //armazena os valores selecionados e envia por post para o php resultados.php
+    $('#buscarCha').click(function(){
+        var sintomas = [];
+        $('.selecionados li').each(function(){
+            sintomas.push($(this).text());
+        });
+
+        $().redirect('resultados.php',{
+            'sintomas': sintomas
+        });
     });
 
 
