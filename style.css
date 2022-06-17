@@ -53,3 +53,10 @@ body{
 .sugest-name:hover{
   cursor: pointer;
 }
+
+
+
+#menuIndex {
+background-color: white;
+border-radius: 20px;
+}
