@@ -11,7 +11,7 @@
     <div class="container">
         <div class=row>
             <div class=logo>
-                <img src="logo.png" alt="logo">
+                <img src="projetocha_logo.png" alt="logo">
             </div>
             <div class=content>
     <form action="CrudRecipes.php" method="post">
