@@ -1,4 +1,9 @@
 $(document).ready(function() {
+    
+    showEllement("#goto_busca");
+    showEllement("#goto_suggest");
+    showEllement("#goto_feedback");
+    showEllement("#goto_sobre");
 
     //index menu, Redirect to the pages
     
@@ -13,6 +18,11 @@ $(document).ready(function() {
         $(elemento).click(function(){
             $(elemento).fadeOut();
             window.location.href = destination;
+        });
+    }
+    
+    function showEllement(elemento){
+            $(elemento).fadeOut();
         });
     }
 
