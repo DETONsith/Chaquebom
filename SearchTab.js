@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    console.log("chegou aqui1");
+    $( "#txtBusca" ).keyup(function() {
+  alert( "digitou" );
+});
 
     $('#txtBusca').keyup(function() {
         console.log("chegou aqui");
