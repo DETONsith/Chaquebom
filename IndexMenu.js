@@ -23,7 +23,7 @@ $(document).ready(function() {
     
     function showEllement(elemento){
             $(elemento).fadeOut();
-        });
-    }
+        }
+    
 
 });
