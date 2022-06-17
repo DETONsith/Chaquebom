@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    console.log("mecanismo de busca carregado com sucesso");
 
     $('#txtBusca').keyup(function() {
     //envia para o php o valor do campo de busca
@@ -6,6 +7,7 @@ $(document).ready(function() {
         $.post("querySimp.php",{palavra:texto},function(data){
             $(".sugests").html(data);
         })
+        console.log("valor de busca carregado com sucesso!");
     });
 
     //ao clicar na sugestão armazena ela no campo de selecionados
