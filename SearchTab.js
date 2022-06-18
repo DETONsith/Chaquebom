@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+    var sintomas = [];
+
     console.log("mecanismo de busca carregado com sucesso");
 
     $('#txtBusca').keyup(function() {
@@ -12,21 +15,43 @@ $(document).ready(function() {
 
     //ao clicar na sugestão armazena ela no campo de selecionados
     $('.sugests').on('click','li',function(){
+        if(sintomas.indexOf($(this).text()) == -1){
         $('.selecionados').append($(this));
+        $('#txtBusca').val("");
+        $('.sugests').html("");
+        //check if the item is already in the array
+        
+            sintomas.push($(this).text());
+        }
+        console.log(sintomas);
     });
 
     //armazena os valores selecionados e envia por post para o php resultados.php
-    $('#buscarCha').click(function(){
-        var sintomas = [];
+    $('#btnBusca').click(function(){
+        
         $('.selecionados li').each(function(){
             sintomas.push($(this).text());
         });
 
-        $().redirect('resultados.php',{
-            'sintomas': sintomas
-        });
+        var sintomas_send = sintomas.join(",");
+        $.post("resultados.php",{sintomas:sintomas_send});
+        clearAll();
+        
+    });
+
+    //ao clicar no selecionado remove ele do array e remove do campo de selecionados
+    $('.selecionados').on('click','li',function(){
+        $(this).remove();
+        var index = sintomas.indexOf($(this).text());
+        sintomas.splice(index,1);
+        console.log(sintomas);
     });
 
 
+    function clearAll(){
+        $('.selecionados').html("");
+        $('.sugests').html("");
+        sintomas = [];
+    }
 
 });
