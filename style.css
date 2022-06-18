@@ -33,7 +33,7 @@ body{
 .row{
   display:flex;
   flex-direction:column;
-  justify-content:space-around;
+  justify-content:center;
   align-items:center;
 }
 
@@ -41,12 +41,11 @@ body{
   border: #E0EEEE solid 4px;
   border-radius: 50%;
   height: 150px;
-  margin-top: 220px;
   text-align: 100px;
 }
 .container{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
 }
