@@ -1,81 +1,84 @@
-CREATE TABLE Ingrediente (
-  idIngrediente INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  nome VARCHAR(50) NULL,
-  PRIMARY KEY(idIngrediente)
+
+
+CREATE TABLE `Sintoma`
+(
+ `idSintoma` integer NOT NULL ,
+ `nome`      varchar(50) NOT NULL ,
+
+PRIMARY KEY (`idSintoma`)
 );
 
-CREATE TABLE Sintoma (
-  idSintoma INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  nome VARCHAR(50) NULL,
-  buscasTotal INTEGER UNSIGNED NULL,
-  PRIMARY KEY(idSintoma)
+
+CREATE TABLE `Ingrediente`
+(
+ `idIngrediente` integer NOT NULL ,
+ `nome`          varchar(50) NOT NULL ,
+
+PRIMARY KEY (`idIngrediente`)
 );
 
-CREATE TABLE Logins (
-  idLogins INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  login VARCHAR(50) NULL,
-  password VARCHAR(100) UNSIGNED NULL,
-  PRIMARY KEY(idLogins)
+
+
+
+
+CREATE TABLE `Logins`
+(
+ `idLogins` integer NOT NULL ,
+ `login`    varchar(50) NOT NULL ,
+ `password` varchar(100) NULL ,
+
+PRIMARY KEY (`idLogins`)
 );
 
-CREATE TABLE Receita (
-  idReceita INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  Sintoma_idSintoma INTEGER UNSIGNED NOT NULL,
-  Ingrediente_idIngrediente INTEGER UNSIGNED NOT NULL,
-  descricao VARCHAR(1000) NULL,
-  imagem BLOB NULL,
-  autorEmail VARCHAR(100) NULL,
-  cliques INTEGER UNSIGNED NULL,
-  nome VARCHAR(100) NULL,
-  PRIMARY KEY(idReceita),
-  INDEX Receita_FKIndex1(Ingrediente_idIngrediente),
-  INDEX Receita_FKIndex2(Sintoma_idSintoma),
-  FOREIGN KEY(Ingrediente_idIngrediente)
-    REFERENCES Ingrediente(idIngrediente)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION,
-  FOREIGN KEY(Sintoma_idSintoma)
-    REFERENCES Sintoma(idSintoma)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION
+
+
+
+CREATE TABLE `Receita`
+(
+ `idReceita` integer NOT NULL ,
+ `Nome`      varchar(50) NOT NULL ,
+ `Email`     varchar(50) NOT NULL ,
+ `Preparo`   varchar(500) NOT NULL ,
+ `Imagem`    blob NOT NULL ,
+ `Sintoma`   varchar(200) NOT NULL ,
+ `Ingrediente`   varchar(200) NOT NULL ,
+ `aprovado`  boolean NOT NULL ,
+
+PRIMARY KEY (`idReceita`)
 );
 
-CREATE TABLE FormularioSugestao (
-  idFormularioSugestao INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  Sintoma_idSintoma INTEGER UNSIGNED NOT NULL,
-  Ingrediente_idIngrediente INTEGER UNSIGNED NOT NULL,
-  email VARCHAR(100) NULL,
-  descricao VARCHAR(1000) NULL,
-  imagem BLOB NULL,
-  estado BOOL NULL,
-  PRIMARY KEY(idFormularioSugestao),
-  INDEX FormularioSugestao_FKIndex2(Ingrediente_idIngrediente),
-  INDEX FormularioSugestao_FKIndex2(Sintoma_idSintoma),
-  FOREIGN KEY(Ingrediente_idIngrediente)
-    REFERENCES Ingrediente(idIngrediente)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION,
-  FOREIGN KEY(Sintoma_idSintoma)
-    REFERENCES Sintoma(idSintoma)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION
+
+
+
+
+
+
+CREATE TABLE `REL_IngredienteReceita`
+(
+ `idReceita`     integer NOT NULL ,
+ `idIngrediente` integer NOT NULL ,
+
+KEY `FK_40` (`idReceita`),
+CONSTRAINT `FK_38` FOREIGN KEY `FK_40` (`idReceita`) REFERENCES `Receita` (`idReceita`),
+KEY `FK_43` (`idIngrediente`),
+CONSTRAINT `FK_41` FOREIGN KEY `FK_43` (`idIngrediente`) REFERENCES `Ingrediente` (`idIngrediente`)
 );
 
-CREATE TABLE Busca (
-  idBusca INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  Receita_idReceita INTEGER UNSIGNED NOT NULL,
-  Sintoma_idSintoma INTEGER UNSIGNED NOT NULL,
-  PRIMARY KEY(idBusca),
-  INDEX Busca_FKIndex1(Sintoma_idSintoma),
-  INDEX Busca_FKIndex2(Receita_idReceita),
-  FOREIGN KEY(Sintoma_idSintoma)
-    REFERENCES Sintoma(idSintoma)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION,
-  FOREIGN KEY(Receita_idReceita)
-    REFERENCES Receita(idReceita)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION
+
+
+CREATE TABLE `REL_SintomaReceita`
+(
+ `idSintoma_1` integer NOT NULL ,
+ `idReceita`   integer NOT NULL ,
+
+KEY `FK_33` (`idSintoma_1`),
+CONSTRAINT `FK_31` FOREIGN KEY `FK_33` (`idSintoma_1`) REFERENCES `Sintoma` (`idSintoma`),
+KEY `FK_36` (`idReceita`),
+CONSTRAINT `FK_34` FOREIGN KEY `FK_36` (`idReceita`) REFERENCES `Receita` (`idReceita`)
 );
+
+insert into logins (login,password) values ('detonlindo','lindomesmo');
+
+
 
 
