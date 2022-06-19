@@ -83,6 +83,13 @@ border-radius: 20px;
 }
 
 .menu{
+height:100%;
+  
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  flex-direction:column;
+  
 border-radius:2px;
 border:solid;
 background-color:white;
@@ -94,9 +101,15 @@ font-family: roboto;
 }
 
 .MenuButton{
-background-color:light-green;
 color:black;
 border-radius:4px;
+cursor:pointer;
+}
+
+.MenuButton:hover{
+color:white;
+background-color:black;
+border-color:green;
 }
 
 
