@@ -31,6 +31,8 @@ body{
 }
 
 .row{
+  width:80%;
+  height:100%;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -44,16 +46,31 @@ body{
   text-align: 100px;
 }
 .container{
+  width: 100%;
+  height:100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
 .col-md-12{
+  height:30%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.content{
+  height:50%;
+}
+
+.footer{
+
+  height:20%;
+  
+}
+
+
 
 .sugest-name:hover{
   cursor: pointer;
@@ -62,16 +79,18 @@ body{
 
 
 #menuIndex {
-background-color: white;
 border-radius: 20px;
 }
 
 #menu{
+text-align: center;
 border-radius:10px;
 color: black;
 font-size: 38px;
 font-family: roboto;
 }
+
+
 
 .sobre{
   text-align: center;
