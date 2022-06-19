@@ -1,52 +1,93 @@
+<?php 
+
+$erroFile="";
+
+if($_SERVER['REQUEST_METHOD']=='POST'){
+
+
+if(empty($_POST['file'])){
+  $erroFile="Por favor coloque uma imagem";
+}
+}
+
+ 
+function limpaPost($valor){
+  $valor=trim($valor);
+  $valor=stripslashes($valor);
+  $valor=htmlspecialchars($valor);
+}
+Include("Class/ClassConexao.php");
+ $conexao=new ClassConexao();
+ $conexao->conectaDB();
+  
+
+
+$email = $_POST['email'];
+$sintomas= $_POST['sintomas'];
+$ingredientes= $_POST['ingredientes'];
+$preparo= $_POST['preparo'];
+$fil=$_POST['file'];
+
+$stmt = $con->prepare("INSERT INTO banco (email,sintomas,ingredintes,preparo,fil) VALUES(?,?,?,?,?)");
+$stmt->bindParam(1,$email);
+$stmt->bindParam(2,$sintomas);
+$stmt->bindParam(3,$ingredientes);
+$stmt->bindParam(4,$preparo);
+$stmt->bindParam(5,$fil);
+$stmt->execute();
+
+
+
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script type="text/javascript" src="DefaultBehaviour.js"></script>
-  <title>Enviar sugestão</title>
+  <link rel="stylesheet" href="estilo.css">
   
  
 </head>
 
 <body>
-  <div class="container">
-        <div class="row">
+
           <div class="col-md-12">
-                    <img src="projetocha_logo.png" class="logo" alt="logo">
+                    <img  src="projetocha_logo.png" class="logo" alt="logo">
                 </div>
-        <div class="col-md-4" >
-          
+        
+
+        <form method="post">
+          <h3 align="center">Sugestão de chá</h3>
           <label for="email" class="form-label">E-mail</label>
-          <br>
-          <input 
-          type="email" class="form-control" id="email" name="email" placeholder="nome@email.com" maxlength="100" required>
-           <br>
+        
+          <input type="email" class="form-control" id="email" name="email" placeholder="nome@email.com" maxlength="100" required>
+         <br><br>
           <label for="sintomas" class="form-label">Sintomas</label>
-          <br>
+          
           <input type="text" class="form-control" id="sintomas" name="sintomas" required>
           
-          <br><label for="ingredientes" class="form-label">Ingredientes</label>
+          <br><br><label for="ingredientes" class="form-label">Ingredientes</label>
           
-          <br><input type="text" class="form-control" id="ingredientes" name="ingredientes" required>
-          <br>
+          <input type="text" class="form-control" id="ingredientes" name="ingredientes" required>
+          <br><br>
+        
+          
           <label for="preparo" class="form-label">Preparo</label>
-          <br>
-          <input type="text" class="form-control" id="preparo" name="preparo" maxlength="1000" required>
-          <br>
-          <label for="file">Coloque uma imagem:</label>
+          
+          <input type="text"  class="form-control" id="preparo" name="preparo" maxlength="1000" required>
+          <br><br>
+          <label for="file">Imagem</label>
          <input type="file" id="file" name="file" accept="image/png, image/jpeg">
-        </div>
-    
+         <span class="erro"><?php echo $erroFile ?></span><br>
+        <form>
+
        
-        <div class="col-12">
-          <button class="btn btn-primary" type="submit">Enviar</button>
+        <div class="center">
+          <button  class="btn btn-primary" type="submit">Enviar</button>
         </div>
-            
       </form>
   </div>
 </body>
 
 </html>
+
