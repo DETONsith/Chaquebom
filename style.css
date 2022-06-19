@@ -83,6 +83,9 @@ border-radius: 20px;
 }
 
 .menu{
+border-radius:2px;
+border:solid;
+background-color:white;
 text-align: center;
 border-radius:10px;
 color: black;
@@ -90,6 +93,11 @@ font-size: 38px;
 font-family: roboto;
 }
 
+.MenuButton{
+background-color:light-green;
+color:black;
+border-radius:4px;
+}
 
 
 .sobre{
