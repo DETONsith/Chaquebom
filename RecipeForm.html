@@ -18,7 +18,7 @@ function limpaPost($valor){
 }
 $email= $_POST['email'];
 $sintomas= $_POST['sintomas'];
-$ingredientes= $_POST['ingredintes'];
+$ingredientes= $_POST['ingredientes'];
 $preparo= $_POST['preparo'];
 $fil= $_POST['file'];
 
@@ -76,17 +76,11 @@ $fil= $_POST['file'];
 </body>
 <?php
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "chaquebom";
-$conn = mysqli_connect($host, $user, $pass, $db);
-  $stmt = $pdo->prepare("INSERT INTO nome(email,sintomas,ingredientes,preparo,fil)
+$pdo=new PDO("mysql:host=localhost;dbname=chaquebom","root","");
+  $stmt = $pdo->prepare("INSERT INTO nome(email,sintomas,ingredientes,preparo,file)
   VALUES('$email','$sintomas','$ingredientes','$preparo','$fil')");
   $stmt->execute();
-
-
-  ?>
+?>
 
 </html>
 
