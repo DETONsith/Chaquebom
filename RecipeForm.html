@@ -16,6 +16,7 @@ function limpaPost($valor){
   $valor=stripslashes($valor);
   $valor=htmlspecialchars($valor);
 }
+$nome= $_POST['nome'];
 $email= $_POST['email'];
 $sintomas= $_POST['sintomas'];
 $ingredientes= $_POST['ingredientes'];
@@ -29,8 +30,11 @@ $fil= $_POST['file'];
 <html>
 
 <head>
+
   <meta charset="utf-8">
   <link rel="stylesheet" href="estilo.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="DefaultBehaviour.js"></script>
   
  
 </head>
@@ -44,13 +48,17 @@ $fil= $_POST['file'];
 
         <form method="post">
           <h3 align="center">Sugestão de chá</h3>
+          <label for="nome" class="form-label">Nome</label>
+        
+          <input type="nome" class="form-control" id="nome"  name="nome" maxlength="50" required>
+         <br><br>
           <label for="email" class="form-label">E-mail</label>
         
-          <input type="email" class="form-control" id="email" name="email" placeholder="nome@email.com" maxlength="100" required>
+          <input type="email" class="form-control" id="email" name="email" placeholder="nome@email.com" maxlength="50" required>
          <br><br>
           <label for="sintomas" class="form-label">Sintomas</label>
           
-          <input type="text" class="form-control" id="sintomas" name="sintomas" required>
+          <input type="text" class="form-control" id="sintomas" name="sintomas" maxlength="200" required>
           
           <br><br><label for="ingredientes" class="form-label">Ingredientes</label>
           
@@ -60,7 +68,7 @@ $fil= $_POST['file'];
           
           <label for="preparo" class="form-label">Preparo</label>
           
-          <input type="text"  class="form-control" id="preparo" name="preparo" maxlength="1000" required>
+          <input type="text"  class="form-control" id="preparo" name="preparo" maxlength="500" required>
           <br><br>
           <label for="file">Imagem</label>
          <input type="file" id="file" name="file" accept="image/png, image/jpeg">
@@ -77,8 +85,8 @@ $fil= $_POST['file'];
 <?php
 
 $pdo=new PDO("mysql:host=localhost;dbname=chaquebom","root","");
-  $stmt = $pdo->prepare("INSERT INTO nome(email,sintomas,ingredientes,preparo,file)
-  VALUES('$email','$sintomas','$ingredientes','$preparo','$fil')");
+  $stmt = $pdo->prepare("INSERT INTO Receita(nome,email,preparo,imagem,ingrediente,sintoma)
+  VALUES('$nome','$email','$preparo','$fil','$ingrediente','$sintoma')");
   $stmt->execute();
 ?>
 
