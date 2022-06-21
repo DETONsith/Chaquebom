@@ -2,7 +2,7 @@
 
 CREATE TABLE `Sintoma`
 (
- `idSintoma` integer NOT NULL ,
+ `idSintoma` integer NOT NULL AUTO_INCREMENT,
  `nome`      varchar(50) NOT NULL ,
 
 PRIMARY KEY (`idSintoma`)
@@ -11,7 +11,7 @@ PRIMARY KEY (`idSintoma`)
 
 CREATE TABLE `Ingrediente`
 (
- `idIngrediente` integer NOT NULL ,
+ `idIngrediente` integer NOT NULL AUTO_INCREMENT,
  `nome`          varchar(50) NOT NULL ,
 
 PRIMARY KEY (`idIngrediente`)
@@ -23,7 +23,7 @@ PRIMARY KEY (`idIngrediente`)
 
 CREATE TABLE `Logins`
 (
- `idLogins` integer NOT NULL ,
+ `idLogins` integer NOT NULL AUTO_INCREMENT,
  `login`    varchar(50) NOT NULL ,
  `password` varchar(100) NULL ,
 
@@ -35,7 +35,7 @@ PRIMARY KEY (`idLogins`)
 
 CREATE TABLE `Receita`
 (
- `idReceita` integer NOT NULL ,
+ `idReceita` integer NOT NULL AUTO_INCREMENT,
  `Nome`      varchar(50) NOT NULL ,
  `Email`     varchar(50) NOT NULL ,
  `Preparo`   varchar(500) NOT NULL ,
