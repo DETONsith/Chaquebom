@@ -129,4 +129,19 @@ border-color:green;
   display: flex;
   justify-content: center;
 }
+.sugest-name{
+  border-radius: 12px;
+  background-color:#9e704f;
+  color:white;
+  cursor:pointer;
+  margin-top: 5%;
+}
+.sugests{
+  border-radius: 12px;
+  background-color:#d9986a;
+  color:black;
+  cursor:pointer;
+  margin-top: 5%;
+
+}
 
