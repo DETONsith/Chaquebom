@@ -16,12 +16,6 @@ function limpaPost($valor){
   $valor=stripslashes($valor);
   $valor=htmlspecialchars($valor);
 }
-$nome= $_POST['nome'];
-$email= $_POST['email'];
-$sintomas= $_POST['sintomas'];
-$ingredientes= $_POST['ingredientes'];
-$preparo= $_POST['preparo'];
-$fil= $_POST['file'];
 
 
 
@@ -82,13 +76,7 @@ $fil= $_POST['file'];
       </form>
   </div>
 </body>
-<?php
 
-$pdo=new PDO("mysql:host=localhost;dbname=chaquebom","root","");
-  $stmt = $pdo->prepare("INSERT INTO Receita(nome,email,preparo,imagem,ingrediente,sintoma)
-  VALUES('$nome','$email','$preparo','$fil','$ingrediente','$sintoma')");
-  $stmt->execute();
-?>
 
 </html>
 
