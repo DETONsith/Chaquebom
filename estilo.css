@@ -17,11 +17,9 @@ form{
     border-color:darkkhaki;
     background-color:darkkhaki;
     height:25px;
-   
+}
 
-
-  }
-  label {
+   label {
     display: inline-block;
     width:100px;
     text-align: left;
