@@ -35,8 +35,8 @@ $fil= $_POST['file'];
 <?php
 
 $pdo=new PDO("mysql:host=localhost;dbname=chaquebom","root","");
-  $stmt = $pdo->prepare("INSERT INTO Receita(nome,email,preparo,imagem,ingrediente,sintoma)
-  VALUES('$nome','$email','$preparo','$fil','$ingrediente','$sintoma')");
+  $stmt = $pdo->prepare("INSERT INTO Receita(nome,email,preparo,imagem,ingrediente,sintoma,aprovado)
+  VALUES('$nome','$email','$preparo','$fil','$ingredientes','$sintomas',0)");
   $stmt->execute();
 ?>
 </body>
