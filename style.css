@@ -9,8 +9,6 @@ body{
 }
 
 #divBusca{
-  
-  border:solid 1px;
   border-radius:15px;
   width:300px;
 
@@ -46,8 +44,6 @@ body{
   text-align: 100px;
 }
 .container{
-  width: 100%;
-  height:100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -117,5 +113,20 @@ border-color:green;
   text-align: center;
   margin-left: 20%;
   margin-right: 20%;
+}
+#btnBusca{
+  border-radius: 12px;
+  background-color:#8b4513;
+  color:white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  cursor:pointer;
+  margin-top: 5%;
+  height: 40%;
+  width: 50%;
+  font-size: 3vh;
+}
+#button1{
+  display: flex;
+  justify-content: center;
 }
 
