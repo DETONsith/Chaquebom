@@ -5,7 +5,7 @@ $user = "root";
 $pass = "";
 $db = "chaquebom";
 $conn = mysqli_connect($host, $user, $pass, $db);
-$results = $conn->query("select nome from sintomas where nome like '%$_POST[palavra]%'");
+$results = $conn->query("select nome from sintoma where nome like '%$_POST[palavra]%'");
 
 ?>
 
