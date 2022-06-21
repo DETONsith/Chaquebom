@@ -1,25 +1,4 @@
-<?php 
 
-$erroFile="";
-
-if($_SERVER['REQUEST_METHOD']=='POST'){
-
-
-if(empty($_POST['file'])){
-  $erroFile="Por favor coloque uma imagem";
-}
-}
-
- 
-function limpaPost($valor){
-  $valor=trim($valor);
-  $valor=stripslashes($valor);
-  $valor=htmlspecialchars($valor);
-}
-
-
-
-?>
 <!DOCTYPE html>
 <html>
 
@@ -65,7 +44,7 @@ function limpaPost($valor){
           <input type="text"  class="form-control" id="preparo" name="preparo" maxlength="500" required>
           <br><br>
           <label for="file">Imagem</label>
-         <input type="file" id="file" name="file" accept="image/png, image/jpeg">
+         <input type="file" id="file" name="file" accept="image/png, image/jpeg" required>
          <span class="erro"><?php echo $erroFile ?></span><br>
         <form>
 
