@@ -7,10 +7,15 @@ $(document).ready(function() {
     $('#txtBusca').keyup(function() {
     //envia para o php o valor do campo de busca
         var texto = $('#txtBusca').val();
+        if (texto != ""){
         $.post("querySimp.php",{palavra:texto},function(data){
             $(".sugests").html(data);
         })
         console.log("valor de busca carregado com sucesso!");
+        }else{
+            $('.sugests').html("");
+        }   
+
     });
 
     //ao clicar na sugestão armazena ela no campo de selecionados
