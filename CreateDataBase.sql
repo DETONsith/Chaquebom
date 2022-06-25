@@ -39,7 +39,7 @@ CREATE TABLE `Receita`
  `Nome`      varchar(50) NOT NULL ,
  `Email`     varchar(50) NOT NULL ,
  `Preparo`   varchar(500) NOT NULL ,
- `Imagem`    blob NOT NULL ,
+ `Imagem`    longblob NOT NULL ,
  `Sintoma`   varchar(200) NOT NULL ,
  `Ingrediente`   varchar(200) NOT NULL ,
  `aprovado`  boolean NOT NULL ,
