@@ -1,26 +1,46 @@
 <?php 
-
+echo $_POST['sintomas'];
 $sintomas = $_POST['sintomas'];
 $sintomas = explode(",", $sintomas);
+var_dump($sintomas);
 
 require_once('connection.php');
 
 $recipelist = [];
 
 foreach($sintomas as $sintoma){
+$results1 = $conn->query("select * from Sintoma where nome = '$sintoma'"); //pega todos os sintomas que batem com o nome
+var_dump($results1);
 
-$results = $conn->query("select idReceita from REL_SintomaReceita where idSintoma_1 like '$sintoma'");
+while($row = $results1->fetch_assoc()) {
+
+    $results2 = $conn->query("select * from REL_SintomaReceita where idSintoma_1 =".$row['idSintoma']);//usa o id do sintoma para pegar o id da receita
+    while($row2 = $results2->fetch_assoc()){
+
+        if(!in_array($row2['idReceita'],$recipelist)){ //checa se o idReceita já está no array
+            array_push($recipelist,$row2['idReceita']); //se não estiver coloca ele no array de id's de receitas não repetidos (podia ter usado select distinct mas ai não teria graça)
+        }
+
+    }
+
+    
+
+}
+
+//tradução dos dados
+//row = sintomas -> (idSintoma / nome)
+//row2 = REL_SintomaReceita -> (idSintoma / idReceita)
+
+
 
 //if idReceita is not in the array, add it
-foreach($results as $result){
-    if(!in_array($result['idReceita'], $recipelist)){
-        array_push($recipelist, $result['idReceita']);
-    }
 }
-}
+echo '<br><br><br>';
+var_dump($recipelist);
 
+if (sizeof($recipelist) > 0){
 foreach($recipelist as $recipinho){
-    $results = $conn->query("select * from RECEITA where idReceita like '$recipinho'");
+    $results = $conn->query("select * from RECEITA where idReceita like '$recipinho'"); //coloca na variável results todos os "Objetos" receita encontrados.
 }
 
 ?>
@@ -44,9 +64,11 @@ foreach($recipelist as $recipinho){
                 <div class="content">
                     <div class="searchresult">
 
+                        
+
                         <?php
                         //MOSTRA AS RECEITAS
-                        foreach($results as $result){
+                        
                             echo "<div class='recipe'>";
                             //NOME DA RECEITA
                             echo "<div class='titleRecipe'>
@@ -65,7 +87,7 @@ foreach($recipelist as $recipinho){
                             </div>";
 
                             echo "</div>";
-                        }
+                        
                         
                         ?>
 
@@ -87,3 +109,17 @@ foreach($recipelist as $recipinho){
         </div>
     </body>
 </html>
+<?php 
+}
+
+?>
+
+<script type="text/javascript">
+
+    var current_page = 1;
+    var total_page = <?php print(sizeof($recipelist)); ?>;
+    $(".pagesCount").html = current_page+"/"+total_page;
+
+
+
+</script>

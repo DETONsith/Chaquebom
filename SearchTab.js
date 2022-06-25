@@ -33,12 +33,22 @@ $(document).ready(function() {
 
     //armazena os valores selecionados e envia por post para o php resultados.php
     $('#btnBusca').click(function(){
+        console.log("clicou em enviar");
         
         $('.selecionados li').each(function(){
             sintomas.push($(this).text());
+            
         });
+        console.log("colocou os sintomas em um array");
 
         var sintomas_send = sintomas.join(",");
+        console.log("Juntou os sintomas assim: "+sintomas_send);
+        $('.sugest-name').html("<form method='post' hidden action='resultados.php' name='formparasintomas'><input type='text' name='sintomas' id='sintomas' value='"+sintomas_send+"'></form>");
+        document.forms['formparasintomas'].submit();
+
+
+
+        console.log("Enviou o form");
         $.post("resultados.php",{sintomas:sintomas_send});
         clearAll();
         
