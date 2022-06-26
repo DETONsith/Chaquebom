@@ -64,7 +64,12 @@ body{
 .footer{
 
   height:20%;
-  
+  bottom: unset;
+  background-color:#d9986a;
+  color:black;
+  margin-top: 5%;
+  height: 40%;
+  width: 50%;
 }
 
 
