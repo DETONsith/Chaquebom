@@ -64,12 +64,7 @@ body{
 .footer{
 
   height:20%;
-  bottom: unset;
-  background-color:#d9986a;
-  color:black;
-  margin-top: 5%;
-  height: 40%;
-  width: 50%;
+
 }
 
 
@@ -121,19 +116,18 @@ border-color:green;
   margin-right: 20%;
 }
 #btnBusca{
-  
+  justify-content: center;
   border-radius: 12px;
   background-color:#8b4513;
   color:white;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   cursor:pointer;
   margin-top: 5%;
-  height: 10%;
-  width: 20%;
+  height: 40%;
+  width: 60%;
   font-size: 3vh;
-  justify-content: center;
-  
 }
+
 #button1{
   display: flex;
   justify-content: center;
