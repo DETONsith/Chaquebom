@@ -7,8 +7,8 @@ else{
     echo "<h1>Bem-vindo, Administrador!</h1>";
 }
 <html>
-<div class="footerB">
-                <a href="index.html"><button>Voltar</button></a>
+<div >
+                <a href="index.html"><button class="footerB">Voltar</button></a>
         </div>
 </html>
 ?>
