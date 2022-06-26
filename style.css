@@ -126,6 +126,7 @@ border-color:green;
   height: 40%;
   width: 60%;
   font-size: 3vh;
+  display: flex;
 }
 
 #button1{
