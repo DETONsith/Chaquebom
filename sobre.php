@@ -26,9 +26,8 @@
         </div>
 
         <div class="footer">
-            
-        Aqui vai o footer da página
-        </div>
+           <a href="index.html"><button>Voltar</button></a>
+         </div>
 
         </div> 
         </div>
