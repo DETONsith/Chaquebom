@@ -1,5 +1,6 @@
 <?php 
 echo $_POST['sintomas'];
+$current_page = $_POST['act_page'];
 $sintomas = $_POST['sintomas'];
 $sintomas = explode(",", $sintomas);
 var_dump($sintomas);
@@ -33,15 +34,27 @@ while($row = $results1->fetch_assoc()) {
 
 
 
-//if idReceita is not in the array, add it
 }
 echo '<br><br><br>';
+
 var_dump($recipelist);
 
+if (sizeof($recipelist)%3 != 0){
+    $total_pages = (round(sizeof($recipelist)/3,0,PHP_ROUND_HALF_DOWN))+1;
+} else {$total_pages = sizeof($recipelist)/3;}
+
 if (sizeof($recipelist) > 0){
-foreach($recipelist as $recipinho){
-    $results = $conn->query("select * from RECEITA where idReceita like '$recipinho'"); //coloca na variável results todos os "Objetos" receita encontrados.
-}
+$receita1 = $conn->query("select * from Receita where idReceita =".$recipelist[(($current_page-1)*3)]);
+$receitaa1 = $receita1->fetch_assoc();
+if (sizeof($recipelist) > 1){
+$receita2 = $conn->query("select * from Receita where idReceita =".$recipelist[(1+($current_page-1)*3)]);
+$receitaa2 = $receita2->fetch_assoc();}
+if (sizeof($recipelist) > 2){
+$receita3 = $conn->query("select * from Receita where idReceita =".$recipelist[(2+($current_page-1)*3)]);
+$receitaa3 = $receita3->fetch_assoc();}
+echo '<br><br><br><br>';
+
+var_dump($receita1);
 
 ?>
 
@@ -72,31 +85,78 @@ foreach($recipelist as $recipinho){
                             echo "<div class='recipe'>";
                             //NOME DA RECEITA
                             echo "<div class='titleRecipe'>
-                            <h2><span class='recipeId'>".$result['idReceita']."</span> -> ".$result['nome']."</h2>
+                            <h2><span class='recipeId'>".$receitaa1['idReceita']."</span> -> ".$receitaa1['Nome']."</h2>
                             </div>";
                             
 
 
                             //IMAGEM DA RECEITA
                             echo "<div class='imageRecipe'>";
-                            echo "<img src='".$result['imagem']."' alt='".$result['nome']."'>
+                            echo "<img src='data:image/jpeg;base64,".base64_encode($receitaa1['Imagem'])."' alt='".$receitaa1['Nome']."'>
                             </div>";
                             //INGREDIENTES DA RECEITA
                             echo "<div class='ingredientes'>
-                            <p>".$result['ingrediente']."</p> 
+                            <p>".$receitaa1['Ingrediente']."</p> 
                             </div>";
 
                             echo "</div>";
-                        
+
+
+                            if(isset($recipelist[(1+($current_page-1)*3)])){
+                            //RECEITA 2
+
+                            echo "<div class='recipe'>";
+                            //NOME DA RECEITA
+                            echo "<div class='titleRecipe'>
+                            <h2><span class='recipeId'>".$receitaa2['idReceita']."</span> -> ".$receitaa2['Nome']."</h2>
+                            </div>";
+                            
+
+
+                            //IMAGEM DA RECEITA
+                            echo "<div class='imageRecipe'>";
+                            echo "<img src='data:image/jpeg;base64,".base64_encode($receitaa2['Imagem'])."' alt='".$receitaa2['Nome']."'>
+                            </div>";
+                            //INGREDIENTES DA RECEITA
+                            echo "<div class='ingredientes'>
+                            <p>".$receitaa2['Ingrediente']."</p> 
+                            </div>";
+
+                            echo "</div>";
+                            }
+
+
+                            if(isset($recipelist[(2+($current_page-1)*3)])){
+                                //RECEITA 3
+    
+                                echo "<div class='recipe'>";
+                                //NOME DA RECEITA
+                                echo "<div class='titleRecipe'>
+                                <h2><span class='recipeId'>".$receitaa3['idReceita']."</span> -> ".$receitaa3['Nome']."</h2>
+                                </div>";
+                                
+    
+    
+                                //IMAGEM DA RECEITA
+                                echo "<div class='imageRecipe'>";
+                                echo "<img src='data:image/jpeg;base64,".base64_encode($receitaa3['Imagem'])."' alt='".$receitaa3['Nome']."'>
+                                </div>";
+                                //INGREDIENTES DA RECEITA
+                                echo "<div class='ingredientes'>
+                                <p>".$receitaa3['Ingrediente']."</p> 
+                                </div>";
+    
+                                echo "</div>";
+                                }
                         
                         ?>
 
                     </div>
                     <div class="searchresultMenu">
                         <p>
-                            <img src="goback_ico.png" class="icoclass">
-                            <div class="pagesCount"></div>
-                            <img src="next_ico.png" class="icoclass">
+                            <img id='listback' src="goback_ico.png" class="icoclass">
+                            <div class="pagesCount"><?php echo $current_page.'/'.$total_pages; ?></div>
+                            <img id='listnext' src="next_ico.png" class="icoclass">
                         </p>
                     </div>
                     </div>
@@ -110,15 +170,11 @@ foreach($recipelist as $recipinho){
     </body>
 </html>
 <?php 
-}
+} // fim da checagem de "se receita é maior que 0"
 
 ?>
 
 <script type="text/javascript">
-
-    var current_page = 1;
-    var total_page = <?php print(sizeof($recipelist)); ?>;
-    $(".pagesCount").html = current_page+"/"+total_page;
 
 
 
