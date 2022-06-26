@@ -164,11 +164,70 @@ border-color:green;
   width: 80%;
 }
 
+.col-12{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
 .searchresultMenu{
 
+    background-color: white;
+    width: 20%;
+    margin-top: 2vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-self: center;
     align-items: center;
+    border: solid black 0.05vh;
+    border-radius: 2vh;
   
 }
+
+#recipecontent{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.recipe{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: solid black 0.01vh;
+  background-image: linear-gradient(rgb(255, 255, 255),rgb(222, 221, 253));
+}
+
+.titleRecipe{
+  align-self: center;
+}
+
+.imgingred{
+  border: solid black 0.05vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.imageRecipe{
+  justify-self: flex-start;
+  border-right: solid black 0.05vh;
+}
+
+.ingredientes{
+  background-image: linear-gradient(white,rgb(254, 219, 219));
+  width: 100%;
+  justify-self: center;
+}
+.ingredientes h2{
+  border-bottom: solid black 0.05vh;
+  margin: 0vh;
+  text-align: center;
+}
+
+#rcpimg{
+  width: 12vh;
+  height: 12vh;
+}
+
