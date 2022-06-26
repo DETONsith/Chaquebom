@@ -1,8 +1,8 @@
 <?php 
 echo $_POST['sintomas'];
 $current_page = $_POST['act_page'];
-$sintomas = $_POST['sintomas'];
-$sintomas = explode(",", $sintomas);
+$sintomas_original = $_POST['sintomas'];
+$sintomas = explode(",", $sintomas_original);
 var_dump($sintomas);
 
 require_once('connection.php');
@@ -71,10 +71,11 @@ var_dump($receita1);
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                <img src="projetocha_logo.png" class="logo" alt="Logo">
                     <h1>Resultados da pesquisa</h1>
                 </div>
                 
-                <div class="content">
+                <div class="content" id=recipecontent>
                     <div class="searchresult">
 
                         
@@ -91,15 +92,17 @@ var_dump($receita1);
 
 
                             //IMAGEM DA RECEITA
+                            echo "<div class='imgingred'>";
                             echo "<div class='imageRecipe'>";
-                            echo "<img src='data:image/jpeg;base64,".base64_encode($receitaa1['Imagem'])."' alt='".$receitaa1['Nome']."'>
+                            echo "<img id='rcpimg' src='data:image/jpeg;base64,".base64_encode($receitaa1['Imagem'])."' alt='".$receitaa1['Nome']."'>
                             </div>";
                             //INGREDIENTES DA RECEITA
                             echo "<div class='ingredientes'>
+                            <h2>Ingredientes</h2>
                             <p>".$receitaa1['Ingrediente']."</p> 
                             </div>";
 
-                            echo "</div>";
+                            echo "</div></div>";
 
 
                             if(isset($recipelist[(1+($current_page-1)*3)])){
@@ -107,22 +110,25 @@ var_dump($receita1);
 
                             echo "<div class='recipe'>";
                             //NOME DA RECEITA
+                            echo "<div>";
                             echo "<div class='titleRecipe'>
                             <h2><span class='recipeId'>".$receitaa2['idReceita']."</span> -> ".$receitaa2['Nome']."</h2>
-                            </div>";
+                            </div></div>";
                             
 
 
                             //IMAGEM DA RECEITA
+                            echo "<div class='imgingred'>";
                             echo "<div class='imageRecipe'>";
-                            echo "<img src='data:image/jpeg;base64,".base64_encode($receitaa2['Imagem'])."' alt='".$receitaa2['Nome']."'>
+                            echo "<img id='rcpimg' src='data:image/jpeg;base64,".base64_encode($receitaa2['Imagem'])."' alt='".$receitaa2['Nome']."'>
                             </div>";
                             //INGREDIENTES DA RECEITA
                             echo "<div class='ingredientes'>
+                            <h2>Ingredientes</h2>
                             <p>".$receitaa2['Ingrediente']."</p> 
                             </div>";
 
-                            echo "</div>";
+                            echo "</div></div>";
                             }
 
 
@@ -131,6 +137,7 @@ var_dump($receita1);
     
                                 echo "<div class='recipe'>";
                                 //NOME DA RECEITA
+                                
                                 echo "<div class='titleRecipe'>
                                 <h2><span class='recipeId'>".$receitaa3['idReceita']."</span> -> ".$receitaa3['Nome']."</h2>
                                 </div>";
@@ -138,30 +145,33 @@ var_dump($receita1);
     
     
                                 //IMAGEM DA RECEITA
+                                echo "<div id='imgingred'>";
                                 echo "<div class='imageRecipe'>";
-                                echo "<img src='data:image/jpeg;base64,".base64_encode($receitaa3['Imagem'])."' alt='".$receitaa3['Nome']."'>
+                                echo "<img id='rcpimg' src='data:image/jpeg;base64,".base64_encode($receitaa3['Imagem'])."' alt='".$receitaa3['Nome']."'>
                                 </div>";
                                 //INGREDIENTES DA RECEITA
                                 echo "<div class='ingredientes'>
+                                <h2>Ingredientes</h2>
                                 <p>".$receitaa3['Ingrediente']."</p> 
                                 </div>";
     
-                                echo "</div>";
+                                echo "</div></div>";
                                 }
                         
                         ?>
 
                     </div>
                     <div class="searchresultMenu">
-                        <p>
-                            <img id='listback' src="goback_ico.png" class="icoclass">
-                            <div class="pagesCount"><?php echo $current_page.'/'.$total_pages; ?></div>
-                            <img id='listnext' src="next_ico.png" class="icoclass">
-                        </p>
+                        
+                            <img width="30vh" id='listback' src="goback_ico.png" class="icoclass">
+                            <div class="pagesCount"><?php echo $current_page.'/'.$total_pages;?></div>
+                            <img width="30vh" id='listnext' src="next_ico.png" class="icoclass">
+                        
                     </div>
                     </div>
                     <div class="footer">
                     </div>
+                    <form method='post' hidden action='resultados.php' name='formparasintomas'><input type='text' name='sintomas' id='sintomas' value='<?php echo $sintomas_original ?>'><input type='text' name='act_page' id='act_page' value=''></form>
                 </div>
 
                 
@@ -176,6 +186,24 @@ var_dump($receita1);
 
 <script type="text/javascript">
 
+$(document).ready(function() {  
+
+var sintomas = "<?php print_r($sintomas_original); ?>"
+var current_page = "<?php print_r($current_page); ?>"
+var total_page = "<?php print_r($total_pages); ?>"
+$("#listback").click(function(){
+    if (current_page != 1){
+    $("#act_page").val() = String(current_page-1);
+    document.forms['formparasintomas'].submit();
+    }
+})
+$("#listnext").click(function(){
+    if (current_page < total_page){
+    $("#act_page").val() = String(current_page+1);
+    document.forms['formparasintomas'].submit();
+    }
+})
 
 
+})
 </script>
