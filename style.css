@@ -234,3 +234,13 @@ border-color:green;
   height: 12vh;
 }
 
+.footerB{
+  border-radius: 12px;
+  background-color:#cde1e0;
+  color:rgb(6, 6, 6);
+  cursor:pointer;
+  margin-top: 5%;
+  height: 50%;
+  width: 100%;
+  font-size: 2vh;
+}
