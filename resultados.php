@@ -170,6 +170,7 @@ var_dump($receita1);
                     </div>
                     </div>
                     <div class="footer">
+                        <a href="index.html"><button>Voltar</button></a>
                     </div>
                     <form method='post' hidden action='resultados.php' name='formparasintomas'><input type='text' name='sintomas' id='sintomas' value='<?php echo $sintomas_original ?>'><input type='text' name='act_page' id='act_page' value=''></form>
                 </div>
