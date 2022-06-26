@@ -28,8 +28,10 @@ $fil= $_POST['file'];
          Agradecemos a sua colaboração!</h3>
         
     </div>
-       <a href="index.html"> <button  class="btn btn-primary" type="submit" >Voltar para a página principal</button></a>
+       <div class="footerB">
+       <a href="RecipeForm.html"> <button  class="btn btn-primary" type="submit">Voltar</button></a>
     </div>
+        </div>
 
 </div>
 <?php
