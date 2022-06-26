@@ -43,7 +43,7 @@ $(document).ready(function() {
 
         var sintomas_send = sintomas.join(",");
         console.log("Juntou os sintomas assim: "+sintomas_send);
-        $('.sugest-name').html("<form method='post' hidden action='resultados.php' name='formparasintomas'><input type='text' name='sintomas' id='sintomas' value='"+sintomas_send+"'></form>");
+        $('.sugest-name').html("<form method='post' hidden action='resultados.php' name='formparasintomas'><input type='text' name='sintomas' id='sintomas' value='"+sintomas_send+"'><input type='text' name='act_page' id='act_page' value='1'></form>");
         document.forms['formparasintomas'].submit();
 
 
