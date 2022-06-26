@@ -173,7 +173,8 @@ var_dump($receita1);
                         <a href="RecipeSearch.html"><button class="footerB">Voltar</button></a>
                     </div>
                     <form method='post' hidden action='resultados.php' name='formparasintomas'><input type='text' name='sintomas' id='sintomas' value='<?php echo $sintomas_original ?>'><input type='text' name='act_page' id='act_page' value=''></form>
-                </div>
+                    <form method='post' hidden action='showRecipe.php' name='formdetalhes'><input type='text' name='sintomas' id='sintomas' value='<?php echo $sintomas_original ?>'><input type="text" name='receitafordetail' id='receitafordetail'></form>  
+            </div>
 
                 
         
@@ -194,15 +195,23 @@ var current_page = "<?php print_r($current_page); ?>"
 var total_page = "<?php print_r($total_pages); ?>"
 $("#listback").click(function(){
     if (current_page != 1){
-    $("#act_page").val() = String(current_page-1);
+    $("#act_page").val(String(current_page-1));
     document.forms['formparasintomas'].submit();
     }
 })
 $("#listnext").click(function(){
     if (current_page < total_page){
-    $("#act_page").val() = String(current_page+1);
+    $("#act_page").val(String(current_page+1));
     document.forms['formparasintomas'].submit();
     }
+})
+
+
+$(".recipe").click(function(){
+    var selectedRecipe =($(this).attr("id")); //get id from the clicked recipe
+    $("#receitafordetail").val(String(selectedRecipe));
+    document.forms['formdetalhes'].submit();
+    console.log(selectedRecipe);
 })
 
 
