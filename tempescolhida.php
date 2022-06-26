@@ -1,3 +1,16 @@
+<?php 
+
+$sintomas_guardar = $_POST['sintomas'];
+$receita_consulta = $_POST['receitafordetail'];
+
+
+require_once('connection.php');
+$receitashow = $conn->query("select * from Receita where idReceita = ".$receita_consulta);
+$receita = $receitashow->fetch_assoc();
+
+
+?>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -18,19 +31,19 @@
     
             <div class="content">
                 <div id="imagem">
-                    <img src="" alt="">
+                    <img id='rcpimg' src="<?php echo 'data:image/jpeg;base64,'.base64_encode($receita['Imagem']); ?>" alt="">
                 </div>
                 <div id="texto">
                     <div id="texto1">
                         <h1 center>Ingredientes</h1>
                         <div id="recetexto">
-
+                            <?php echo $receita['Ingrediente']; ?>
                         </div>
                     </div>
                     <div id="texto2">
                         <h1 center>Modo de preparo</h1>
                         <div id="recetexto2">
-
+                            <?php echo $receita['Preparo']; ?>
                         </div>
 
                     </div>
