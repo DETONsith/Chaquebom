@@ -236,7 +236,7 @@ border-color:green;
 }
 
 .footerB{
-  border-radius: 12px;
+  border-radius: 2vh;
   background-color:#cde1e0;
   color:rgb(6, 6, 6);
   cursor:pointer;
