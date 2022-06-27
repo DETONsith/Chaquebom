@@ -181,6 +181,7 @@ var_dump($receita1);
 
         </div>	
     </body>	
+    
 </html>	
 <?php 	
 } // fim da checagem de "se receita é maior que 0"	
