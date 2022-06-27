@@ -10,11 +10,11 @@ require_once('connection.php');
 
 $recipelist = [];	
 
-foreach($sintomas as $sintoma){	
-$results1 = $conn->query("select * from Sintoma where nome = '$sintoma'"); //pega todos os sintomas que batem com o nome	
-var_dump($results1);	
+   foreach($sintomas as $sintoma){	
+    $results1 = $conn->query("select * from Sintoma where nome = '$sintoma'"); //pega todos os sintomas que batem com o nome	
+    var_dump($results1);	
 
-while($row = $results1->fetch_assoc()) {	
+   while($row = $results1->fetch_assoc()) {	
 
     $results2 = $conn->query("select * from REL_SintomaReceita where idSintoma_1 =".$row['idSintoma']);//usa o id do sintoma para pegar o id da receita	
     while($row2 = $results2->fetch_assoc()){	
