@@ -33,14 +33,14 @@ foreach($sintomas as $sint){ //para cada sintoma da lista vai adicionar uma rela
     $sql->execute();
 
 
+    
+
+
+
+    
+}
     $sql = $conn->query("update receita set aprovado = '1', Nome = '".$nome."', Preparo = '".$preparo."', Ingrediente = '".$ingrediente."', Sintoma = '".$sintomas_original."' where idReceita = ".$id); //aprova e atualiza os dados da receita para que ela apareça nas buscas
     $sql ->execute();
-
-
-
-    $sql = $conn->query("insert into REL_SintomaReceita(id");
-}
-
 
 
 ?>
