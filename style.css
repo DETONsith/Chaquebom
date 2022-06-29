@@ -237,11 +237,10 @@ border-color:green;
 
 .footerB{
   border-radius: 2vh;
-  background-color:#cde1e0;
+  border-color:#4f8888;
+  background-color:#dfe4e4;
   color:rgb(6, 6, 6);
   cursor:pointer;
   margin-top: 5%;
-  height: 50%;
-  width: 100%;
   font-size: 2vh;
 }
