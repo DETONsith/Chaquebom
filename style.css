@@ -244,3 +244,17 @@ border-color:green;
   margin-top: 5%;
   font-size: 2vh;
 }
+#fotogrupo{
+  margin-top: 2vh;
+  border-radius: 10vh;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.espaco{
+  margin-top: 15vh;
+}
+
