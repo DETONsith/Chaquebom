@@ -123,8 +123,8 @@ border-color:green;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   cursor:pointer;
   margin-top: 5%;
-  height: 40%;
-  width: 60%;
+   height: 10%;
+  width: 20%;
   font-size: 3vh;
   display: flex;
 }
