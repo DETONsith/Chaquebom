@@ -32,13 +32,12 @@ form{
   }
   button{
     border-radius: 30px;
-    background-color: greenyellow;
-    border-color:greenyellow;
+    background-color: #dfe4e4;
+    border-color:#4f8888;
     width:120px;
     height:30px;
     
 }
-
 .logo{
   border: #E0EEEE solid 4px;
   border-radius: 50%;
