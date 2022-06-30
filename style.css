@@ -201,7 +201,7 @@ border-color:green;
   flex-direction: column;
   justify-content: center;
   border: solid black 0.01vh;
-  background-image: linear-gradient(rgb(255, 255, 255),rgb(222, 221, 253));
+  background-image: linear-gradient(rgb(119, 255, 100),rgb(119, 201, 79));
 }
 
 .titleRecipe{
