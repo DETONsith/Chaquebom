@@ -84,7 +84,7 @@ var_dump($receita1);
                         <?php	
                         //MOSTRA AS RECEITAS	
 
-                            echo "<div class='recipe'>";	
+                            echo "<div class='recipe' id=".$receitaa1['idReceita'].">";	
                             //NOME DA RECEITA	
                             echo "<div class='titleRecipe'>	
                             <h2><span class='recipeId'>".$receitaa1['idReceita']."</span> -> ".$receitaa1['Nome']."</h2>	
@@ -109,7 +109,7 @@ var_dump($receita1);
                             if(isset($recipelist[(1+($current_page-1)*3)])){	
                             //RECEITA 2	
 
-                            echo "<div class='recipe'>";	
+                            echo "<div class='recipe' id=".$receitaa1['idReceita'].">";	
                             //NOME DA RECEITA	
                             echo "<div>";	
                             echo "<div class='titleRecipe'>	
@@ -136,7 +136,7 @@ var_dump($receita1);
                             if(isset($recipelist[(2+($current_page-1)*3)])){	
                                 //RECEITA 3	
 
-                                echo "<div class='recipe'>";	
+                                echo "<div class='recipe' id=".$receitaa1['idReceita'].">";	
                                 //NOME DA RECEITA	
 
                                 echo "<div class='titleRecipe'>	
