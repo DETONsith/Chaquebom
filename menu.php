@@ -60,7 +60,7 @@ button{
    
      <div class="ontainer">
         <a href="crud1.php"><button>CRUD</button></a>
-        <a href="resultados.php"><button>APROVAR</button></a>
+        <a href="judge.php"><button>APROVAR</button></a>
         <a href="index.html"><button class="Voltar">VOLTAR</button></a>
 
 
