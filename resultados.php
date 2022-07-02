@@ -1,10 +1,10 @@
 
 <?php 	
-echo $_POST['sintomas'];	
+//echo $_POST['sintomas'];	
 $current_page = $_POST['act_page'];	
 $sintomas_original = $_POST['sintomas'];	
 $sintomas = explode(",", $sintomas_original);	
-var_dump($sintomas);	
+//var_dump($sintomas);	
 
 require_once('connection.php');	
 
@@ -12,7 +12,7 @@ $recipelist = [];
 
    foreach($sintomas as $sintoma){	
     $results1 = $conn->query("select * from Sintoma where nome = '$sintoma'"); //pega todos os sintomas que batem com o nome	
-    var_dump($results1);	
+    //var_dump($results1);	
 
    while($row = $results1->fetch_assoc()) {	
 
@@ -36,9 +36,9 @@ $recipelist = [];
 
 
 }	
-echo '<br><br><br>';	
+//echo '<br><br><br>';	
 
-var_dump($recipelist);	
+//var_dump($recipelist);	
 
 if (sizeof($recipelist)%3 != 0){	
     $total_pages = (round(sizeof($recipelist)/3,0,PHP_ROUND_HALF_DOWN))+1;	
@@ -53,9 +53,9 @@ $receitaa2 = $receita2->fetch_assoc();}
 if (sizeof($recipelist) > 2){	
 $receita3 = $conn->query("select * from Receita where idReceita =".$recipelist[(2+($current_page-1)*3)]);	
 $receitaa3 = $receita3->fetch_assoc();}	
-echo '<br><br><br><br>';	
+//echo '<br><br><br><br>';	
 
-var_dump($receita1);	
+//var_dump($receita1);	
 
 ?>	
 
