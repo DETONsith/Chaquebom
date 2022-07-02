@@ -174,7 +174,7 @@ var_dump($receita1);
                         <a href="RecipeSearch.html"><button class="footerB">Voltar</button></a>	
                     </div>	
                     <form method='post' hidden action='resultados.php' name='formparasintomas'><input type='text' name='sintomas' id='sintomas' value='<?php echo $sintomas_original ?>'><input type='text' name='act_page' id='act_page' value=''></form>	
-                    <form method='post' hidden action='showRecipe.php' name='formdetalhes'><input type='text' name='sintomas' id='sintomas' value='<?php echo $sintomas_original ?>'><input type="text" name='receitafordetail' id='receitafordetail'></form>  	
+                    <form method='post' hidden action='tempescolhida.php' name='formdetalhes'><input type='text' name='sintomas' id='sintomas' value='<?php echo $sintomas_original ?>'><input type="text" name='receitafordetail' id='receitafordetail'></form>  	
             </div>	
 
 
