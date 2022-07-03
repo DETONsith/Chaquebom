@@ -84,7 +84,8 @@ img{
         foreach($dados as $chave=> $valor){
             echo '<tr>
             <td>'.$valor['Nome'].'</td>
-            <td><img src='.$valor['Imagem'].'></td>
+            <td><img src="?><?php echo 'data:image/jpeg;base64,'.base64_encode($valor['Imagem']); ?>
+            <?php echo"></td>
             <td>
             <button ><a href="editar.php? editarid='.$valor['idReceita'].'">Editar</a></button>
              <button> <a href="deletar.php? deletid='.$valor['idReceita'].'">Deletar</a></button>
