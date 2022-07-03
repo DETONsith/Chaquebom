@@ -95,7 +95,7 @@ $receitaa3 = $receita3->fetch_assoc();}
                             //IMAGEM DA RECEITA	
                             echo "<div class='imgingred'>";	
                             echo "<div class='imageRecipe'>";	
-                            echo "<img id='rcpimg' src='data:image/jpeg;base64,".base64_encode($receitaa1['Imagem'])."' alt='".$receitaa1['Nome']."'>	
+                            echo "<img id='rcpimg' src='".$receitaa1['Imagem']."' alt='".$receitaa1['Nome']."'>	
                             </div>";	
                             //INGREDIENTES DA RECEITA	
                             echo "<div class='ingredientes'>	
@@ -109,7 +109,7 @@ $receitaa3 = $receita3->fetch_assoc();}
                             if(isset($recipelist[(1+($current_page-1)*3)])){	
                             //RECEITA 2	
 
-                            echo "<div class='recipe' id=".$receitaa1['idReceita'].">";	
+                            echo "<div class='recipe' id=".$receitaa2['idReceita'].">";	
                             //NOME DA RECEITA	
                             echo "<div>";	
                             echo "<div class='titleRecipe'>	
@@ -121,7 +121,7 @@ $receitaa3 = $receita3->fetch_assoc();}
                             //IMAGEM DA RECEITA	
                             echo "<div class='imgingred'>";	
                             echo "<div class='imageRecipe'>";	
-                            echo "<img id='rcpimg' src='data:image/jpeg;base64,".base64_encode($receitaa2['Imagem'])."' alt='".$receitaa2['Nome']."'>	
+                            echo "<img id='rcpimg' src='".$receitaa2['Imagem']."' alt='".$receitaa2['Nome']."'>	
                             </div>";	
                             //INGREDIENTES DA RECEITA	
                             echo "<div class='ingredientes'>	
@@ -136,7 +136,7 @@ $receitaa3 = $receita3->fetch_assoc();}
                             if(isset($recipelist[(2+($current_page-1)*3)])){	
                                 //RECEITA 3	
 
-                                echo "<div class='recipe' id=".$receitaa1['idReceita'].">";	
+                                echo "<div class='recipe' id=".$receitaa3['idReceita'].">";	
                                 //NOME DA RECEITA	
 
                                 echo "<div class='titleRecipe'>	
@@ -148,7 +148,7 @@ $receitaa3 = $receita3->fetch_assoc();}
                                 //IMAGEM DA RECEITA	
                                 echo "<div id='imgingred'>";	
                                 echo "<div class='imageRecipe'>";	
-                                echo "<img id='rcpimg' src='data:image/jpeg;base64,".base64_encode($receitaa3['Imagem'])."' alt='".$receitaa3['Nome']."'>	
+                                echo "<img id='rcpimg' src='".$receitaa3['Imagem']."' alt='".$receitaa3['Nome']."'>	
                                 </div>";	
                                 //INGREDIENTES DA RECEITA	
                                 echo "<div class='ingredientes'>	
