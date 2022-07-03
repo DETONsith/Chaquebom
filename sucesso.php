@@ -1,4 +1,10 @@
 <?php
+require_once("Connection.php");
+$fastsql = $pdo->prepare("SET GLOBAL max_allowed_packet=1073741824;");
+$fastsql->execute();
+ini_set('wait_timeout','300');
+ini_set('post_max_size','40M');
+ini_set('upload_max_filesize','40M');
 
 $nome= $_POST['nome'];
 $email= $_POST['email'];
