@@ -1,5 +1,6 @@
 <?php 
 require_once('connection.php');
+require_once('connectionchecker.php');
 
 $results1 = $conn->query("select * from Receita where aprovado = '0'");
 
@@ -39,7 +40,8 @@ $results1 = $conn->query("select * from Receita where aprovado = '0'");
                             echo "
                             <tr>
                             <form id='".$row['idReceita']."' name='id".$row['idReceita']."' method='POST' action=''>
-                            <td><img width='80vh' height='80vh' src='".$row['Imagem']."'>	</td>
+                            <td><img width='80vh' height='80vh' src="?><?php echo 'data:image/jpeg;base64,'.base64_encode($row['Imagem']); ?><?php echo ">";?>
+                            <?php echo "</td>
                             <td><input type=text id='nome' name='nome' value='".$row['Nome']."'></td>
                             <td><input type=text id='ingrediente' name='ingrediente' value='".$row['Ingrediente']."'></td>
                             <td><input type=text id='preparo' name='preparo' value='".$row['Preparo']."' ></td>
