@@ -19,7 +19,7 @@
                 </div>
         
 
-        <form method="post" action="sucesso.php">
+        <form method="post" action="sucesso.php" enctype="multipart/form-data">
           <h3 align="center">Sugestão de chá</h3>
           <label for="nome" class="form-label">Nome</label>
         
@@ -44,7 +44,7 @@
           <input type="text"  class="form-control" id="preparo" name="preparo" maxlength="500" required>
           <br><br>
           <label for="file">Imagem</label>
-         <input type="file" id="file" name="file" accept="image/png, image/jpeg" required>
+         <input type="file" id="file" name="file" accept=".png,.jpg,.webp" required>
          <br>
         <div class="center">
           <button  class="btn btn-primary" type="submit">Enviar</button>
