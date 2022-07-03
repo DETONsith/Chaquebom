@@ -1,7 +1,7 @@
 <?php
 require_once('conexao.php');
 require_once('connectionchecker.php');
-$sql=$pdo->prepare("SELECT * FROM Receita");
+$sql=$pdo->prepare("SELECT * FROM Receita where aprovado=1");
 $sql->execute();
 $dados=$sql->fetchAll();
 
