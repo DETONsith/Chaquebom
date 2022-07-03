@@ -1,8 +1,10 @@
 <?php
 require_once('conexao.php');
+require_once('connectionchecker.php');
 $sql=$pdo->prepare("SELECT * FROM Receita");
 $sql->execute();
 $dados=$sql->fetchAll();
+
 
 
 
