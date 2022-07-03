@@ -37,20 +37,19 @@ $recipelist = [];
 
 }	
 //echo '<br><br><br>';	
-
 //var_dump($recipelist);	
 
 if (sizeof($recipelist)%3 != 0){	
-    $total_pages = (round(sizeof($recipelist)/3,0,PHP_ROUND_HALF_DOWN))+1;	
+    $total_pages = (round(sizeof($recipelist)/3,0,PHP_ROUND_HALF_DOWN));	
 } else {$total_pages = sizeof($recipelist)/3;}	
 
-if (sizeof($recipelist) > 0){	
+if (array_key_exists((($current_page-1)*3),$recipelist)){	
 $receita1 = $conn->query("select * from Receita where idReceita =".$recipelist[(($current_page-1)*3)]);	
 $receitaa1 = $receita1->fetch_assoc();	
-if (sizeof($recipelist) > 1){	
+if (array_key_exists((1+($current_page-1)*3),$recipelist)){	
 $receita2 = $conn->query("select * from Receita where idReceita =".$recipelist[(1+($current_page-1)*3)]);	
 $receitaa2 = $receita2->fetch_assoc();}	
-if (sizeof($recipelist) > 2){	
+if (array_key_exists((2+($current_page-1)*3),$recipelist)){	
 $receita3 = $conn->query("select * from Receita where idReceita =".$recipelist[(2+($current_page-1)*3)]);	
 $receitaa3 = $receita3->fetch_assoc();}	
 //echo '<br><br><br><br>';	
@@ -197,13 +196,15 @@ var current_page = "<?php print_r($current_page); ?>"
 var total_page = "<?php print_r($total_pages); ?>"	
 $("#listback").click(function(){	
     if (current_page != 1){	
-    $("#act_page").val(String(current_page-1));	
+    var new_current_page = parseInt(current_page)-1;
+    $("#act_page").val(String(new_current_page));	
     document.forms['formparasintomas'].submit();	
     }	
 })	
 $("#listnext").click(function(){	
     if (current_page < total_page){	
-    $("#act_page").val(String(current_page+1));	
+    var new_current_page = parseInt(current_page)+1;
+    $("#act_page").val(String(new_current_page));	
     document.forms['formparasintomas'].submit();	
     }	
 })	
