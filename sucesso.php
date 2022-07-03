@@ -5,7 +5,6 @@ $email= $_POST['email'];
 $sintomas= $_POST['sintomas'];
 $ingredientes= $_POST['ingredientes'];
 $preparo= $_POST['preparo'];
-$fil= $_POST['file'];
 
 ?>
 <!DOCTYPE html>
@@ -38,8 +37,8 @@ $fil= $_POST['file'];
 
 $pdo=new PDO("mysql:host=localhost;dbname=chaquebom","root","");
   $stmt = $pdo->prepare("INSERT INTO Receita(nome,email,preparo,imagem,ingrediente,sintoma,aprovado)
-  VALUES('$nome','$email','$preparo','$fil','$ingredientes','$sintomas',0)");
-  $stmt->execute();
+  VALUES('$nome','$email','$preparo',?,'$ingredientes','$sintomas',0)");
+  $stmt->execute([file_get_contents($_FILES['file']["tmp_name"])]);
 ?>
 </body>
 </html>
