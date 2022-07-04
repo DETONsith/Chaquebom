@@ -29,8 +29,8 @@ $preparo= $_POST['preparo'];
     <div class="letra">
         <div class="receita">
         <img  src="projetocha_logo.png" class="rosto" alt="logo">
-        <h3>Obrigado pela sugestão, em breve daremos retorno atráves do e-mail para informar a situação da sua sugestão!
-         Agradecemos a sua colaboração!</h3>
+        <h3>Obrigado pela sugestão, em breve daremos um retorno atráves do e-mail para informar a situação da sua sugestão!
+         Agradecemos a sua colaboração!😀 </h3>
         
     </div>
        <div >
