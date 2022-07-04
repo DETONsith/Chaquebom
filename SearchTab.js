@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     var sintomas = [];
 
-    console.log("mecanismo de busca carregado com sucesso");
+    console.log("mecanismo de busca carregado com sucesso ;) ");
 
     $('#txtBusca').keyup(function() {
     //envia para o php o valor do campo de busca
@@ -46,8 +46,6 @@ $(document).ready(function() {
         $('.sugest-name').html("<form method='post' hidden action='resultados.php' name='formparasintomas'><input type='text' name='sintomas' id='sintomas' value='"+sintomas_send+"'><input type='text' name='act_page' id='act_page' value='1'></form>");
         document.forms['formparasintomas'].submit();
 
-
-
         console.log("Enviou o form");
         $.post("resultados.php",{sintomas:sintomas_send});
         clearAll();
@@ -62,11 +60,9 @@ $(document).ready(function() {
         console.log(sintomas);
     });
 
-
     function clearAll(){
         $('.selecionados').html("");
         $('.sugests').html("");
         sintomas = [];
     }
-
 });
