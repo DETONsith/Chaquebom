@@ -1,5 +1,4 @@
 <?php 
-
 require_once('connection.php');
 //var_dump($_POST);
 $id = $_POST['idreceita'];
@@ -10,9 +9,7 @@ $sintomas_original = $_POST['sintomas'];
 $sintomas = explode(",", $sintomas_original);
 var_dump($sintomas);
 
-
 foreach($sintomas as $sint){ //para cada sintoma da lista vai adicionar uma relação entre eles e a receita no banco de relações
-
 
     echo "<br><br><br> realizando operação com sintoma $sint ";
 
@@ -43,12 +40,7 @@ foreach($sintomas as $sint){ //para cada sintoma da lista vai adicionar uma rela
             echo "Ocorreu um erro na operação: " . $conn->error . "<br> <a href='javascript:history.back()'><button  class='footerB'>Voltar</button></a>"; 
         }
     }
-    }
-    
-
-    
-
-
+  }
 
     
 }
