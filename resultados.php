@@ -111,7 +111,7 @@ $receitaa3 = $receita3->fetch_assoc();}
 
                             if(isset($recipelist[(1+($current_page-1)*3)])){	
                             //RECEITA 2	
-
+                            echo"<br>";
                             echo "<div class='recipe' id=".$receitaa2['idReceita'].">";	
                             //NOME DA RECEITA	
                             echo "<div>";	
@@ -138,7 +138,7 @@ $receitaa3 = $receita3->fetch_assoc();}
 
                             if(isset($recipelist[(2+($current_page-1)*3)])){	
                                 //RECEITA 3	
-
+                                echo"<br>";
                                 echo "<div class='recipe' id=".$receitaa3['idReceita'].">";	
                                 //NOME DA RECEITA	
 
