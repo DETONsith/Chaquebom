@@ -3,11 +3,9 @@
 $sintomas_guardar = $_POST['sintomas'];
 $receita_consulta = $_POST['receitafordetail'];
 
-
 require_once('connection.php');
 $receitashow = $conn->query("select * from Receita where idReceita = ".$receita_consulta);
 $receita = $receitashow->fetch_assoc();
-
 
 ?>
 
@@ -60,6 +58,5 @@ $receita = $receitashow->fetch_assoc();
             </div>
            
         </body>
-
 
 </html>
