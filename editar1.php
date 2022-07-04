@@ -7,7 +7,6 @@ $email=$_POST['email1'];
 $preparo=$_POST['preparo1'];
 $ingrediente=$_POST['ingredientes1'];
 
-
 $sintomas_original=$_POST['sintomas1'];
 $sintomas = explode(",", $sintomas_original);
 
@@ -17,12 +16,9 @@ $sql->execute();
 
 foreach($sintomas as $sint){ //para cada sintoma da lista vai adicionar uma relação entre eles e a receita no banco de relações
 
-
-
     echo "<br><br><br> realizando operação com sintoma $sint ";
 
     $SinpCheck = $conn->query("SELECT upper(nome) from sintoma where upper(nome) = (upper('".$sint."'))"); //pega o nome dos sintomas que já existem com os selecionados
-
 
     if($SinpCheck->num_rows == 0){ //caso não exista ainda um sintoma da lista de recebidos cadastrados insere eles na tabela de sintomas
         echo "Foi aceito na inserção";
@@ -31,13 +27,10 @@ foreach($sintomas as $sint){ //para cada sintoma da lista vai adicionar uma rela
 
     }
 
-    
-
     $sinpSearch = $conn->query("SELECT * from Sintoma where upper(nome) = (upper('".$sint."'))"); //pega o nome e o id dos sintomas que correspondem ao sintoma solicitado
     $sinpresult = $sinpSearch->fetch_assoc();
     if($sinpresult != null){ //caso o sintoma exista
     
-
     $RelationCheck = $conn->query("SELECT * FROM REL_SintomaReceita where idSintoma_1 = ".$sinpresult['idSintoma']." and idReceita = $id "); //pega todas as relações que tem entre o sintoma em questão e a receita
     
     if($RelationCheck->num_rows == 0){ // caso não tenha nenhuma relação estabelecida ainda entre o sintoma e a receita, ela é criada.
@@ -51,9 +44,9 @@ foreach($sintomas as $sint){ //para cada sintoma da lista vai adicionar uma rela
     }  
 }
 
-
 $sql=$pdo->prepare("UPDATE Receita SET Nome='$nome',Email='$email',Preparo='$preparo',Sintoma='$sintoma'
 ,Ingrediente='$ingrediente' WHERE idReceita='$id'");
 $sql->execute();
 header('location:crud1.php');
+
 ?>
