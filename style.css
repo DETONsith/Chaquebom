@@ -258,3 +258,10 @@ border-color:green;
   margin-top: 15vh;
 }
 
+.recipe{
+cursor: pointer;
+}
+
+#listnext{
+cursor: pointer;
+}
