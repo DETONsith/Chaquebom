@@ -43,6 +43,11 @@ body{
   height: 150px;
   text-align: 100px;
 }
+
+.logo:hover{
+  cursor:pointer;
+}
+
 .container{
   display: flex;
   justify-content: center;
