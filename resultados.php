@@ -39,6 +39,10 @@ $recipelist = [];
 //echo '<br><br><br>';	
 //var_dump($recipelist);	
 
+if(sizeof($recipelist)==0){
+    echo "<h1 style='text-align:center;margin-top:20vh;border:solid;border-radius:5vh;background-color:#fff2e9;text-decoration: none;'><a href='RecipeSearch.html'>Nenhum resultado encontrado, clique aqui para voltar!</a></h1>";
+}
+
 if (sizeof($recipelist)%3 != 0){	
     $total_pages = (round(sizeof($recipelist)/3,0,PHP_ROUND_HALF_DOWN));	
 } else {$total_pages = sizeof($recipelist)/3;}	
@@ -94,7 +98,7 @@ $receitaa3 = $receita3->fetch_assoc();}
                             //IMAGEM DA RECEITA	
                             echo "<div class='imgingred'>";	
                             echo "<div class='imageRecipe'>";	
-                            echo "<img id='rcpimg' src='".$receitaa1['Imagem']."' alt='".$receitaa1['Nome']."'>	
+                            echo "<img id='rcpimg' src='data:image/jpeg;base64,".base64_encode($receitaa1['Imagem'])."' alt='".$receitaa1['Nome']."'>	
                             </div>";	
                             //INGREDIENTES DA RECEITA	
                             echo "<div class='ingredientes'>	
@@ -120,7 +124,7 @@ $receitaa3 = $receita3->fetch_assoc();}
                             //IMAGEM DA RECEITA	
                             echo "<div class='imgingred'>";	
                             echo "<div class='imageRecipe'>";	
-                            echo "<img id='rcpimg' src='".$receitaa2['Imagem']."' alt='".$receitaa2['Nome']."'>	
+                            echo "<img id='rcpimg' src='data:image/jpeg;base64,".base64_encode($receitaa2['Imagem'])."' alt='".$receitaa2['Nome']."'>	
                             </div>";	
                             //INGREDIENTES DA RECEITA	
                             echo "<div class='ingredientes'>	
@@ -147,7 +151,7 @@ $receitaa3 = $receita3->fetch_assoc();}
                                 //IMAGEM DA RECEITA	
                                 echo "<div id='imgingred'>";	
                                 echo "<div class='imageRecipe'>";	
-                                echo "<img id='rcpimg' src='".$receitaa3['Imagem']."' alt='".$receitaa3['Nome']."'>	
+                                echo "<img id='rcpimg' src='data:image/jpeg;base64,".base64_encode($receitaa3['Imagem'])."' alt='".$receitaa3['Nome']."'>	
                                 </div>";	
                                 //INGREDIENTES DA RECEITA	
                                 echo "<div class='ingredientes'>	
