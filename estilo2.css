@@ -3,7 +3,6 @@ html,body{
     width: 100%;
 }
 
-
 body{
     background-color:#e6e4da;
 }
@@ -48,11 +47,6 @@ button{
   }
   .receita{
     display: flex;
-    
-    
-    
-   
-
   }
   h3{
       background-color: greenyellow;
@@ -63,7 +57,6 @@ button{
       display: block;
       margin-left:5%;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
-      
       
 }
 .ontainer{
