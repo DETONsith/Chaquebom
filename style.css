@@ -42,6 +42,7 @@ body{
   border-radius: 50%;
   height: 150px;
   text-align: 100px;
+  margin-top: 5vh;
 }
 
 .logo:hover{
