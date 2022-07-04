@@ -3,7 +3,6 @@ require_once('connectionchecker.php');
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
 
   <meta charset="utf-8">
@@ -34,8 +33,6 @@ button{
     
 }
 .ontainer{
-
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,8 +44,6 @@ button{
     width:100%;
     height:150px;
     justify-content:center;
-   
-
 }
 
     </style>
@@ -58,14 +53,11 @@ button{
                     <img  src="projetocha_logo.png" class="logo" alt="logo">
                 </div>
                 <div>
-                    
-        
-   
+                       
      <div class="ontainer">
         <a href="crud1.php"><button>CRUD</button></a>
         <a href="judge.php"><button>APROVAR</button></a>
         <a href="index.html"><button class="Voltar">VOLTAR</button></a>
-
 
 </div>
 
