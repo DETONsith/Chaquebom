@@ -12,10 +12,7 @@ foreach($dados as $chave=> $valor){
   $sintoma=$valor['Sintoma'];
   $ingrediente=$valor['Ingrediente'];
   $preparo=$valor['Preparo'];
-
 }
-
-
 
 ?>
 
@@ -27,8 +24,7 @@ foreach($dados as $chave=> $valor){
   <meta charset="utf-8">
   <link rel="stylesheet" href="estilo.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script type="text/javascript" src="DefaultBehaviour.js"></script>
-  
+ <script type="text/javascript" src="DefaultBehaviour.js"></script>
  
 </head>
 
@@ -61,22 +57,16 @@ foreach($dados as $chave=> $valor){
         <input type="text" class="form-control" id="ingredientes1" name="ingredientes1" value="<?php echo $sintoma?>">
         <br><br>
       
-        
         <label for="preparo" class="form-label">Preparo</label>
         
         <input type="text"  class="form-control" id="preparo1" name="preparo1" maxlength="500" value="<?php echo $preparo?>">
         <br><br>
-
-          
    
           <div class="center">
           <button  class="btn btn-primary" type="submit1">Enviar</button><button><a href="crud1.php">Voltar</a></button>
         </div>
         </div>
+ 
     </form>
- 
-   
- 
-      
 </body>
-    </html>
+ </html>
