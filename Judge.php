@@ -6,11 +6,6 @@ $results1 = $conn->query("select * from Receita where aprovado = '0'");
 
 ?>
 
-
-
-
-
-
 <html>
     <head>
         <meta charset="UTF-8">
@@ -26,8 +21,8 @@ $results1 = $conn->query("select * from Receita where aprovado = '0'");
             <div class=row>
                 <div></div>
                 <div class=content>
-                 <?php
-                        
+                 
+                    <?php
                         if($results1->num_rows > 0){
                             echo"<table>
                             <th>Imagem</th>
@@ -87,7 +82,4 @@ $("#reprovar").click(function(){
     document.forms["id"+iditem].submit();
     
 })
-
-
-
 })</script>
