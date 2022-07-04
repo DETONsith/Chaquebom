@@ -1,4 +1,3 @@
-
 <?php 	
 //echo $_POST['sintomas'];	
 $current_page = $_POST['act_page'];	
@@ -25,15 +24,11 @@ $recipelist = [];
 
     }	
 
-
-
 }	
 
 //tradução dos dados	
 //row = sintomas -> (idSintoma / nome)	
 //row2 = REL_SintomaReceita -> (idSintoma / idReceita)	
-
-
 
 }	
 //echo '<br><br><br>';	
@@ -82,8 +77,6 @@ $receitaa3 = $receita3->fetch_assoc();}
                 <div class="content" id=recipecontent>	
                     <div class="searchresult">	
 
-
-
                         <?php	
                         //MOSTRA AS RECEITAS	
 
@@ -108,7 +101,6 @@ $receitaa3 = $receita3->fetch_assoc();}
 
                             echo "</div></div>";	
 
-
                             if(isset($recipelist[(1+($current_page-1)*3)])){	
                             //RECEITA 2	
                             echo"<br>";
@@ -119,13 +111,12 @@ $receitaa3 = $receita3->fetch_assoc();}
                             <h2><span class='recipeId'>".$receitaa2['idReceita']."</span> -> ".$receitaa2['Nome']."</h2>	
                             </div></div>";	
 
-
-
                             //IMAGEM DA RECEITA	
                             echo "<div class='imgingred'>";	
                             echo "<div class='imageRecipe'>";	
                             echo "<img id='rcpimg' src='data:image/jpeg;base64,".base64_encode($receitaa2['Imagem'])."' alt='".$receitaa2['Nome']."'>	
                             </div>";	
+                               
                             //INGREDIENTES DA RECEITA	
                             echo "<div class='ingredientes'>	
                             <h2>Ingredientes</h2>	
@@ -134,7 +125,6 @@ $receitaa3 = $receita3->fetch_assoc();}
 
                             echo "</div></div>";	
                             }	
-
 
                             if(isset($recipelist[(2+($current_page-1)*3)])){	
                                 //RECEITA 3	
@@ -146,13 +136,12 @@ $receitaa3 = $receita3->fetch_assoc();}
                                 <h2><span class='recipeId'>".$receitaa3['idReceita']."</span> -> ".$receitaa3['Nome']."</h2>	
                                 </div>";	
 
-
-
                                 //IMAGEM DA RECEITA	
                                 echo "<div id='imgingred'>";	
                                 echo "<div class='imageRecipe'>";	
                                 echo "<img id='rcpimg' src='data:image/jpeg;base64,".base64_encode($receitaa3['Imagem'])."' alt='".$receitaa3['Nome']."'>	
                                 </div>";	
+                               
                                 //INGREDIENTES DA RECEITA	
                                 echo "<div class='ingredientes'>	
                                 <h2>Ingredientes</h2>	
@@ -161,7 +150,6 @@ $receitaa3 = $receita3->fetch_assoc();}
 
                                 echo "</div></div>";	
                                 }	
-
                         ?>	
 
                     </div>	
@@ -179,9 +167,6 @@ $receitaa3 = $receita3->fetch_assoc();}
                     <form method='post' hidden action='resultados.php' name='formparasintomas'><input type='text' name='sintomas' id='sintomas' value='<?php echo $sintomas_original ?>'><input type='text' name='act_page' id='act_page' value=''></form>	
                     <form method='post' hidden action='tempescolhida.php' name='formdetalhes'><input type='text' name='sintomas' id='sintomas' value='<?php echo $sintomas_original ?>'><input type="text" name='receitafordetail' id='receitafordetail'></form>  	
             </div>	
-
-
-
         </div>	
     </body>	
     
@@ -213,7 +198,6 @@ $("#listnext").click(function(){
     }	
 })	
 
-
 $(".recipe").click(function(){	
     var selectedRecipe =($(this).attr("id")); //get id from the clicked recipe	
     $("#receitafordetail").val(String(selectedRecipe));	
@@ -221,7 +205,5 @@ $(".recipe").click(function(){
     console.log(selectedRecipe);	
 })	
 
-
 })	
 </script>	
-
