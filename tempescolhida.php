@@ -52,7 +52,7 @@ $receita = $receitashow->fetch_assoc();
             </div>
             
             <div>
-                <a href=""><button  class="footerB">Voltar</button></a>
+                <a href="javascript:history.back()"><button  class="footerB">Voltar</button></a>
           
             </div>
             
