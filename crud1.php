@@ -5,10 +5,8 @@ $sql=$pdo->prepare("SELECT * FROM Receita where aprovado=1");
 $sql->execute();
 $dados=$sql->fetchAll();
 
-
-
-
 ?>
+
 <!DOCTYPE html>
 <head>
 
@@ -46,7 +44,6 @@ button{
     width:57px;
     height:25px;
    
-    
 }
 .Voltar{
     border-radius: 30px;
@@ -60,7 +57,6 @@ img{
     height:100px;
 }
 
-
 </style>
 </head>
 <body>
@@ -68,7 +64,6 @@ img{
     <div class="ontainer">
     <a href="menu.php"><button class="Voltar">Voltar</button></a><br>
     </div>
-
 
 <?php
     if(count($dados)>0){
@@ -79,7 +74,6 @@ img{
         <th>Ações</th>
         </tr>";
         
-       
         foreach($dados as $chave=> $valor){
             echo "<tr>
             <td>".$valor['Nome']."</td>
@@ -87,12 +81,8 @@ img{
             <?php echo"></td>
             <td>
             <button ><a href='editar.php? editarid=".$valor['idReceita']."'>Editar</a></button>
-            <button> <a href='deletar.php? deletid=".$valor['idReceita']."'>Deletar</a></button>
-                
-                
+            <button> <a href='deletar.php? deletid=".$valor['idReceita']."'>Deletar</a></button> 
             </td>
-           
-           
              </tr>";
         }
         echo"</table>";
@@ -102,6 +92,5 @@ img{
     }
     ?>
     
-
 </body>
 </html>
